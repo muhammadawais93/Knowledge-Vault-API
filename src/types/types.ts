@@ -5,6 +5,11 @@ export interface AuthenticatedRequest extends Request {
   user?: any;
 }
 
+export interface RequestWithLogging extends Request {
+  requestId?: string;
+  startTime?: number;
+}
+
 export interface queryParams {
   q: string;
   type?: string;
