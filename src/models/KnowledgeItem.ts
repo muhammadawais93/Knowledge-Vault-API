@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 import { IKnowledgeItem } from '../types/KnowledgeItem';
 
-const knowledgeItemSchema = new mongoose.Schema<IKnowledgeItem>({
+const knowledgeItemSchema = new mongoose.Schema<IKnowledgeItem>(
+  {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
@@ -63,7 +64,4 @@ knowledgeItemSchema.index(
   }
 );
 
-export const KnowledgeItemModel = mongoose.model<IKnowledgeItem>(
-  'KnowledgeItem',
-  knowledgeItemSchema
-);
+export const KnowledgeItemModel = mongoose.model<IKnowledgeItem>('KnowledgeItem', knowledgeItemSchema);
