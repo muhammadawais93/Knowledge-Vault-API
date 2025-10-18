@@ -1,0 +1,517 @@
+openapi: 3.0.0
+info:
+  title: Knowledge Vault API
+  version: 1.0.0
+  description: A robust RESTful API for managing personal knowledge items including notes, bookmarks, and code snippets.
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+tags:
+  - name: Auth
+    description: Authentication endpoints
+  - name: Knowledge
+    description: Knowledge item management endpoints
+  - name: Collections
+    description: Collection management endpoints
+  - name: Search
+    description: Search endpoints
+  - name: Analytics
+    description: Analytics endpoints
+
+paths:
+  # Auth endpoints
+  /api/auth:
+    get:
+      summary: Get auth route status
+      tags: [Auth]
+      responses:
+        '200':
+          description: Auth route is working
+
+  /api/auth/login:
+    post:
+      summary: Login user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+            example:
+              email: hello@gmail.com
+              password: test123
+      responses:
+        '200':
+          description: Login successful - Returns JWT token for authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Login successful"
+                  token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    description: "JWT token to use in Authorization header as Bearer token"
+                  user:
+                    $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid credentials
+
+  /api/auth/register:
+    post:
+      summary: Register new user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+            example:
+              email: john.doe@example.com
+              password: password123
+              firstName: John
+              lastName: Doe
+              role: user
+      responses:
+        '201':
+          description: User created successfully
+        '400':
+          description: Invalid registration data
+        '409':
+          description: User already exists
+
+  # Knowledge endpoints  
+  /api/knowledge:
+    get:
+      summary: Get all knowledge items
+      description: |
+        Retrieve all knowledge items for the authenticated user.
+        
+        **Required Header:**
+        ```
+        Authorization: Bearer <your-jwt-token>
+        ```
+      tags: [Knowledge]
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+
+    post:
+      summary: Create a new knowledge item
+      description: |
+        Create a new knowledge item (note, bookmark, or code snippet).
+        
+        **Required Header:**
+        ```
+        Authorization: Bearer <your-jwt-token>
+        ```
+      tags: [Knowledge]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeItemCreate'
+      responses:
+        '201':
+          description: Knowledge item created
+        '400':
+          description: Invalid payload
+
+  /api/knowledge/{id}:
+    get:
+      summary: Get a knowledge item by ID
+      tags: [Knowledge]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not found
+
+    put:
+      summary: Update a knowledge item
+      tags: [Knowledge]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KnowledgeItemUpdate'
+      responses:
+        '200':
+          description: Knowledge item updated
+        '400':
+          description: Invalid payload
+        '404':
+          description: Not found
+
+    delete:
+      summary: Delete a knowledge item
+      tags: [Knowledge]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Knowledge item deleted successfully
+        '404':
+          description: Knowledge item not found
+        '401':
+          description: Authentication required
+        '403':
+          description: Access denied
+
+  # Collections endpoints
+  /api/collections:
+    get:
+      summary: Get all collections for the authenticated user
+      description: |
+        **Required Header:**
+        ```
+        Authorization: Bearer <your-jwt-token>
+        ```
+      tags: [Collections]
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Collections retrieved successfully
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+
+    post:
+      summary: Create a new collection
+      tags: [Collections]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionCreate'
+      responses:
+        '201':
+          description: Collection created successfully
+
+  /api/collections/{id}:
+    get:
+      summary: Get a collection by ID
+      tags: [Collections]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection retrieved successfully
+
+    put:
+      summary: Update a collection
+      tags: [Collections]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionUpdate'
+      responses:
+        '200':
+          description: Collection updated successfully
+
+    delete:
+      summary: Delete a collection
+      tags: [Collections]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection deleted successfully
+
+  # Search endpoints
+  /api/search:
+    get:
+      summary: Search knowledge items
+      description: |
+        Search through your knowledge items.
+        
+        **Required Header:**
+        ```
+        Authorization: Bearer <your-jwt-token>
+        ```
+      tags: [Search]
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema:
+            type: string
+          description: Search query
+        - in: query
+          name: type
+          schema:
+            type: string
+            enum: [note, bookmark, code-snippet]
+          description: Filter by knowledge item type
+        - in: query
+          name: tags
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
+          description: Filter by tags
+      responses:
+        '200':
+          description: Search results retrieved successfully
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT Bearer token authentication. 
+        Include the token in the Authorization header as: `Bearer <your-jwt-token>`
+        
+        To get a JWT token:
+        1. Register a new account using POST /api/auth/register
+        2. Login using POST /api/auth/login
+        3. Use the returned token in the Authorization header for all protected endpoints
+
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - email
+        - firstName
+        - lastName
+        - role
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the user
+        email:
+          type: string
+          format: email
+          description: User's email address
+        firstName:
+          type: string
+          description: User's first name
+        lastName:
+          type: string
+          description: User's last name
+        role:
+          type: string
+          enum: [user, admin]
+          description: User's role
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    UserRegister:
+      type: object
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 6
+          description: Password must be at least 6 characters long
+        firstName:
+          type: string
+          minLength: 1
+        lastName:
+          type: string
+          minLength: 1
+        role:
+          type: string
+          enum: [user, admin]
+          default: user
+
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    KnowledgeItem:
+      type: object
+      required:
+        - id
+        - userId
+        - type
+        - title
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        type:
+          type: string
+          enum: [note, bookmark, code-snippet]
+        title:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    KnowledgeItemCreate:
+      type: object
+      required:
+        - type
+        - title
+      properties:
+        type:
+          type: string
+          enum: [note, bookmark, code-snippet]
+        title:
+          type: string
+          minLength: 1
+        content:
+          type: string
+        url:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+
+    KnowledgeItemUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        url:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+
+    Collection:
+      type: object
+      required:
+        - id
+        - userId
+        - name
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    CollectionCreate:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+    CollectionUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+# Global security requirement - makes "Authorize" button prominent
+security:
+  - bearerAuth: []
