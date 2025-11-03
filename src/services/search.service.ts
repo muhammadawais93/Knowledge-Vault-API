@@ -53,11 +53,7 @@ export default class SearchService {
         score: { $meta: 'textScore' },
       } as const;
 
-      const pipeline: mongoose.PipelineStage[] = [
-        { $match: matchCriteria },
-        { $project: projection },
-        { $sort: { score: -1 } },
-      ];
+      const pipeline: mongoose.PipelineStage[] = [{ $match: matchCriteria }, { $project: projection }, { $sort: { score: -1 } }];
 
       const results = await KnowledgeItemModel.aggregate(pipeline);
 
