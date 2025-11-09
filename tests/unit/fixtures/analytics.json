@@ -1,0 +1,66 @@
+{
+  "result": [
+    {
+      "totalItems": [
+        {
+          "count": 11
+        }
+      ],
+      "itemsByType": [
+        {
+          "count": 2,
+          "type": "bookmark"
+        },
+        {
+          "count": 7,
+          "type": "note"
+        },
+        {
+          "count": 2,
+          "type": "code-snippet"
+        }
+      ],
+      "topTags": [
+        {
+          "count": 5,
+          "tag": "performance"
+        },
+        {
+          "count": 5,
+          "tag": "javascript"
+        },
+        {
+          "count": 5,
+          "tag": "laravel"
+        },
+        {
+          "count": 4,
+          "tag": "hooks"
+        },
+        {
+          "count": 4,
+          "tag": "database"
+        }
+      ],
+      "mostViewedItems": [
+        {
+          "itemsCreated": 8,
+          "date": "2025-10-05"
+        },
+        {
+          "itemsCreated": 1,
+          "date": "2025-10-07"
+        },
+        {
+          "itemsCreated": 1,
+          "date": "2025-10-08"
+        },
+        {
+          "itemsCreated": 1,
+          "date": "2025-10-12"
+        }
+      ]
+    }
+  ],
+  "message": "Analytics completed successfully"
+}
