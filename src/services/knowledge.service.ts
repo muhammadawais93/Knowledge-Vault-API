@@ -28,11 +28,7 @@ export default class KnowledgeService {
       let collection = null;
 
       if (collectionId) {
-        collection = await CollectionModel.findOneAndUpdate(
-          { _id: collectionId, userId },
-          { $inc: { itemCount: 1 } },
-          { new: true }
-        );
+        collection = await CollectionModel.findOneAndUpdate({ _id: collectionId, userId }, { $inc: { itemCount: 1 } }, { new: true });
         logger.info(collection, 'Collection updated:');
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -75,11 +71,7 @@ export default class KnowledgeService {
     }
   }
 
-  public async updateKnowledgeItem(
-    knowledgeItemId: string,
-    userId: string,
-    updateData: Partial<IKnowledgeItem>
-  ) {
+  public async updateKnowledgeItem(knowledgeItemId: string, userId: string, updateData: Partial<IKnowledgeItem>) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { viewCount, ...rest } = updateData;
