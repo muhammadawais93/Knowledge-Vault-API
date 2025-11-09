@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "_id": "68e2eaa0ad2ca98ef84231fe",
+      "type": "note",
+      "title": "Laravel Hooks Explained",
+      "content": "computed is a Hook that lets you...",
+      "tags": [
+        "laravel",
+        "javascript",
+        "hooks"
+      ],
+      "updatedAt": "2025-10-05T22:01:04.587Z",
+      "score": 13.666666666666666
+    },
+    {
+      "_id": "68e2e41fc794fcfaefd19ee2",
+      "type": "note",
+      "title": "React Hooks Explained",
+      "content": "useState is a Hook that lets you...",
+      "tags": [
+        "react",
+        "javascript",
+        "hooks"
+      ],
+      "updatedAt": "2025-10-05T21:33:19.820Z",
+      "score": 13.666666666666666
+    },
+    {
+      "_id": "68e2ebe1ad2ca98ef8423204",
+      "type": "note",
+      "title": "React useEffect Best Practices",
+      "content": "useEffect is a React Hook that lets you perform side effects in function components. Key points:\n\n1. Always include dependencies in the dependency array\n2. Use cleanup functions for subscriptions\n3. Avoid infinite loops by carefully managing dependencies\n4. Consider using useCallback for function dependencies\n\nExample:\n```jsx\nuseEffect(() => {\n  const subscription = api.subscribe(data => {\n    setData(data);\n  });\n  \n  return () => subscription.unsubscribe();\n}, []);\n```",
+      "tags": [
+        "react",
+        "hooks",
+        "javascript",
+        "frontend"
+      ],
+      "updatedAt": "2025-10-05T22:06:25.749Z",
+      "score": 6.53125
+    }
+  ],
+  "message": "Search completed successfully"
+}
