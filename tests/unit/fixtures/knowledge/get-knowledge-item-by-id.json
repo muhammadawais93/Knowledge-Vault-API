@@ -1,0 +1,20 @@
+{
+  "message": "Knowledge item retrieved",
+  "knowledgeItem": {
+    "_id": "68e2e41fc784fcfaefd19ee2",
+    "userId": "68e032d10f65b12a4cc7715b",
+    "type": "note",
+    "title": "React Hooks Explained",
+    "content": "useState is a Hook that lets you...",
+    "tags": [
+      "react",
+      "javascript",
+      "hooks"
+    ],
+    "isPrivate": false,
+    "viewCount": 7,
+    "createdAt": "2025-10-05T21:33:19.820Z",
+    "updatedAt": "2025-11-07T23:25:44.891Z",
+    "__v": 0
+  }
+}

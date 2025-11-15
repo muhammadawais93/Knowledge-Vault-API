@@ -1,0 +1,23 @@
+{
+  "message": "Knowledge item created successfully",
+  "knowledgeItem": {
+    "userId": "68e032d10f69b12a4cc7715b",
+    "type": "note",
+    "title": "Laravel Eloquent Query Optimization",
+    "tags": [
+      "laravel",
+      "eloquent",
+      "performance",
+      "php",
+      "database"
+    ],
+    "collectionId": "68e6b9868522c143d2c8b4d4",
+    "isPrivate": false,
+    "viewCount": 0,
+    "_id": "690e89c5726be7eb00f68a68",
+    "createdAt": "2025-11-08T00:07:33.951Z",
+    "updatedAt": "2025-11-08T00:07:33.951Z",
+    "__v": 0
+  },
+  "collection": null
+}

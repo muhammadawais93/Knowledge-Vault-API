@@ -1,0 +1,19 @@
+{
+  "message": "Knowledge item updated successfully",
+  "knowledgeItem": {
+    "_id": "68e2e41fc744fcfaefd19ee2",
+    "userId": "68e032d11f69b12a4cc7715b",
+    "type": "note",
+    "title": "React Hooks Explained - Updated one",
+    "content": "Updated content with more examples...",
+    "tags": [
+      "react",
+      "javascript",
+      "hooks"
+    ],
+    "isPrivate": false,
+    "viewCount": 8,
+    "createdAt": "2025-10-05T21:33:19.820Z",
+    "updatedAt": "2025-11-08T00:11:08.950Z"
+  }
+}

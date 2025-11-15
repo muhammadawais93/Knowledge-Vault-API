@@ -1,0 +1,80 @@
+{
+  "message": "Knowledge items retrieved successfully",
+  "knowledgeItems": [
+    {
+      "_id": "68e2e41fc794fcfaefd20ee2",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "type": "note",
+      "title": "React Hooks Explained",
+      "content": "useState is a Hook that lets you...",
+      "tags": [
+        "react",
+        "javascript",
+        "hooks"
+      ],
+      "isPrivate": false,
+      "viewCount": 7,
+      "createdAt": "2025-10-05T21:33:19.820Z",
+      "updatedAt": "2025-11-07T23:25:44.891Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e2ec57ad2ca98ef842320d",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "type": "bookmark",
+      "title": "React Query Documentation",
+      "content": "TanStack Query (formerly React Query) is a powerful data synchronization library for React. Great for fetching, caching, and updating server state.",
+      "url": "https://tanstack.com/query/latest/docs/react/overview",
+      "tags": [
+        "react",
+        "state-management",
+        "api",
+        "caching"
+      ],
+      "isPrivate": false,
+      "viewCount": 0,
+      "createdAt": "2025-10-05T22:08:20.086Z",
+      "updatedAt": "2025-10-05T22:08:20.086Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e2ec6cad4ca98ef8423210",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "type": "code-snippet",
+      "title": "Debounce Function Implementation",
+      "content": "function debounce(func, wait) {\n  let timeout;\n  return function executedFunction(...args) {\n    const later = () => {\n      clearTimeout(timeout);\n      func(...args);\n    };\n    clearTimeout(timeout);\n    timeout = setTimeout(later, wait);\n  };\n}\n\n// Usage example\nconst debouncedSearch = debounce((query) => {\n  console.log('Searching for:', query);\n  // Perform search API call\n}, 300);\n\n// In React component\nconst handleInputChange = (e) => {\n  debouncedSearch(e.target.value);\n};",
+      "tags": [
+        "javascript",
+        "performance",
+        "utility",
+        "debounce"
+      ],
+      "collectionId": "68e1c83bc544a7254b4639dc",
+      "isPrivate": false,
+      "viewCount": 0,
+      "createdAt": "2025-10-05T22:08:44.367Z",
+      "updatedAt": "2025-10-05T22:08:44.367Z",
+      "__v": 0,
+      "programmingLanguage": "javascript"
+    },
+    {
+      "_id": "68ebbd5f4ac1400bd570ed15",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "type": "note",
+      "title": "Laravel Eloquent Query Optimization",
+      "tags": [
+        "laravel",
+        "eloquent",
+        "performance",
+        "php",
+        "database"
+      ],
+      "collectionId": "68e6b9868525c143d2c8b4d4",
+      "isPrivate": false,
+      "viewCount": 0,
+      "createdAt": "2025-10-12T14:38:23.016Z",
+      "updatedAt": "2025-10-12T14:38:23.016Z",
+      "__v": 0
+    }
+  ]
+}
