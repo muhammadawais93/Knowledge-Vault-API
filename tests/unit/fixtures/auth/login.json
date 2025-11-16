@@ -1,0 +1,11 @@
+{
+  "message": "Login successful",
+  "user": {
+    "id": "68e032d10f69b12a4cc7715b",
+    "firstName": "muhammad",
+    "lastName": "awais",
+    "email": "hello@gmail.com",
+    "role": "user"
+  },
+  "token": "jwt.token.here"
+}
