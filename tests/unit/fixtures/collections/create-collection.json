@@ -1,0 +1,13 @@
+{
+  "message": "Collection created successfully",
+  "collection": {
+    "userId": "68e032d10f69b12a4cc7715b",
+    "name": "General collection unit test",
+    "description": "Collection of anything",
+    "isPrivate": false,
+    "itemCount": 0,
+    "_id": "6917eac7b9029ac65d87a5a9",
+    "createdAt": "2025-11-15T02:51:51.153Z",
+    "updatedAt": "2025-11-15T02:51:51.153Z"
+  }
+}

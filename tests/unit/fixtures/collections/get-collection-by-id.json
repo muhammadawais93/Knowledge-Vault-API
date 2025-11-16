@@ -1,0 +1,13 @@
+{
+  "message": "Collection fetched successfully",
+  "collection": {
+    "_id": "68e1c83bc544a7354b4639dc",
+    "userId": "68e032d10f69b12a4cc7715b",
+    "name": "React Best Practices",
+    "description": "Collection of React patterns and anti-patterns",
+    "isPrivate": true,
+    "itemCount": 2,
+    "createdAt": "2025-10-05T01:22:03.705Z",
+    "updatedAt": "2025-10-05T22:08:44.357Z"
+  }
+}

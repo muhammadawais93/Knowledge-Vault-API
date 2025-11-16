@@ -1,0 +1,49 @@
+{
+  "message": "Collections fetched successfully",
+  "collection": [
+    {
+      "_id": "68e1c83bc544a7354b4639dc",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "name": "React Best Practices",
+      "description": "Collection of React patterns and anti-patterns",
+      "isPrivate": true,
+      "itemCount": 2,
+      "createdAt": "2025-10-05T01:22:03.705Z",
+      "updatedAt": "2025-10-05T22:08:44.357Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e1c96b5992d7b5e58a6537",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "name": "Vue Best Practices",
+      "description": "Collection of Vue patterns and anti-patterns",
+      "isPrivate": true,
+      "itemCount": 0,
+      "createdAt": "2025-10-05T01:27:07.072Z",
+      "updatedAt": "2025-10-05T01:27:07.072Z",
+      "__v": 0
+    },
+    {
+      "_id": "68e26cf85992d7b5e58a6539",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "name": "laravel Best Practices",
+      "description": "Collection of laravel patterns and anti-patterns",
+      "isPrivate": true,
+      "itemCount": 2,
+      "createdAt": "2025-10-05T13:04:56.461Z",
+      "updatedAt": "2025-11-08T00:13:50.364Z",
+      "__v": 0
+    },
+    {
+      "_id": "68ebbd684ac3400bd570ed17",
+      "userId": "68e032d10f69b12a4cc7715b",
+      "name": "General collection",
+      "description": "Collection of anything",
+      "isPrivate": false,
+      "itemCount": 0,
+      "createdAt": "2025-10-12T14:38:32.961Z",
+      "updatedAt": "2025-10-12T14:38:32.961Z",
+      "__v": 0
+    }
+  ]
+}
