@@ -1,0 +1,12 @@
+{
+  "message": "User created successfully",
+  "user": {
+    "id": "691a4f7db9029ac65d87a5b2",
+    "firstName": "test",
+    "lastName": "bob",
+    "email": "hello2@gmail.com",
+    "role": "user",
+    "createdAt": "2025-11-16T22:26:05.091Z",
+    "updatedAt": "2025-11-16T22:26:05.091Z"
+  }
+}
