@@ -64,11 +64,7 @@ export default class CollectionService {
     }
   }
 
-  public async updateCollection(
-    collectionId: string,
-    userId: string,
-    updates: Partial<ICollectionPayload>
-  ) {
+  public async updateCollection(collectionId: string, userId: string, updates: Partial<ICollectionPayload>) {
     try {
       const filter = { _id: collectionId, userId };
       const options = { new: true };
@@ -93,10 +89,7 @@ export default class CollectionService {
 
   public async deleteCollection(collectionId: string, userId: string) {
     try {
-      await KnowledgeItemModel.updateMany(
-        { collectionId, userId },
-        { $unset: { collectionId: '' } }
-      );
+      await KnowledgeItemModel.updateMany({ collectionId, userId }, { $unset: { collectionId: '' } });
 
       const deletedCollection = await CollectionModel.findOneAndDelete({
         _id: collectionId,
