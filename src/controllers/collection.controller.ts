@@ -13,11 +13,7 @@ export default class CollectionController {
       res.status(400).json({ message: 'Invalid collection payload', collection: null });
     }
 
-    const {
-      collection: newCollection,
-      message,
-      status,
-    } = await this.collectionService.createCollection(collection, userId);
+    const { collection: newCollection, message, status } = await this.collectionService.createCollection(collection, userId);
 
     res.status(status).json({ message, collection: newCollection });
   };
@@ -42,10 +38,7 @@ export default class CollectionController {
       res.status(400).json({ message: 'Collection ID and User ID are required', collection: null });
     }
 
-    const { collection, message, status } = await this.collectionService.getCollectionById(
-      collectionId,
-      userId
-    );
+    const { collection, message, status } = await this.collectionService.getCollectionById(collectionId, userId);
 
     res.status(status).json({ message, collection });
   };
@@ -59,11 +52,7 @@ export default class CollectionController {
       res.status(400).json({ message: 'Collection ID and User ID are required', collection: null });
     }
 
-    const { collection, message, status } = await this.collectionService.updateCollection(
-      collectionId,
-      userId,
-      updateCollection
-    );
+    const { collection, message, status } = await this.collectionService.updateCollection(collectionId, userId, updateCollection);
 
     res.status(status).json({ message, collection });
   };
@@ -76,10 +65,7 @@ export default class CollectionController {
       res.status(400).json({ message: 'Collection ID and User ID are required', collection: null });
     }
 
-    const { message, status, collection } = await this.collectionService.deleteCollection(
-      collectionId,
-      userId
-    );
+    const { message, status, collection } = await this.collectionService.deleteCollection(collectionId, userId);
 
     res.status(status).json({ message, collection });
   };

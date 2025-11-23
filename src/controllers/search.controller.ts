@@ -17,10 +17,7 @@ export default class SearchController {
       return res.status(401).json({ results: [], message: 'Authentication required' });
     }
 
-    const { results, message, status } = await this.searchService.search(
-      queryParams as unknown as queryParams,
-      userId
-    );
+    const { results, message, status } = await this.searchService.search(queryParams as unknown as queryParams, userId);
 
     res.status(status).json({ results, message });
   };

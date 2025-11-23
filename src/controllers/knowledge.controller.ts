@@ -12,8 +12,7 @@ export default class KnowledgeController {
       res.status(400).json({ message: 'User ID is required', items: null });
     }
 
-    const { knowledgeItems, message, status } =
-      await this.knowledgeItemService.getKnowledgeItems(userId);
+    const { knowledgeItems, message, status } = await this.knowledgeItemService.getKnowledgeItems(userId);
 
     res.status(status).json({ message, knowledgeItems });
   };
@@ -26,12 +25,7 @@ export default class KnowledgeController {
       res.status(400).json({ message: 'Invalid knowledge item payload', item: null });
     }
 
-    const {
-      knowledgeItem: createdItem,
-      message,
-      status,
-      collection,
-    } = await this.knowledgeItemService.createKnowledgeItem(knowledgeItem, userId);
+    const { knowledgeItem: createdItem, message, status, collection } = await this.knowledgeItemService.createKnowledgeItem(knowledgeItem, userId);
 
     res.status(status).json({ message, knowledgeItem: createdItem, collection });
   };
@@ -44,10 +38,7 @@ export default class KnowledgeController {
       res.status(400).json({ message: 'Invalid knowledge item ID', item: null });
     }
 
-    const { knowledgeItem, message, status } = await this.knowledgeItemService.getKnowledgeItemById(
-      knowledgeId,
-      userId
-    );
+    const { knowledgeItem, message, status } = await this.knowledgeItemService.getKnowledgeItemById(knowledgeId, userId);
 
     res.status(status).json({ message, knowledgeItem });
   };
@@ -61,11 +52,7 @@ export default class KnowledgeController {
       res.status(400).json({ message: 'Knowledge item ID and User ID are required', item: null });
     }
 
-    const { knowledgeItem, message, status } = await this.knowledgeItemService.updateKnowledgeItem(
-      knowledgeId,
-      userId,
-      updateData
-    );
+    const { knowledgeItem, message, status } = await this.knowledgeItemService.updateKnowledgeItem(knowledgeId, userId, updateData);
 
     res.status(status).json({ message, knowledgeItem });
   };
@@ -78,10 +65,7 @@ export default class KnowledgeController {
       res.status(400).json({ message: 'Knowledge item ID and User ID are required', item: null });
     }
 
-    const { knowledgeItem, message, status } = await this.knowledgeItemService.deleteKnowledgeItem(
-      knowledgeId,
-      userId
-    );
+    const { knowledgeItem, message, status } = await this.knowledgeItemService.deleteKnowledgeItem(knowledgeId, userId);
 
     res.status(status).json({ message, knowledgeItem });
   };
