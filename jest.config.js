@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'node',
   preset: 'ts-jest',
-  testMatch: ['**/tests/**/*.test.ts'],
+  testMatch: ['**/tests/**/*.test.ts', '**/tests/**/*.spec.ts'],
   collectCoverageFrom: [
     'src/**/*.ts',
     // Exclude files that don't need unit tests
@@ -23,4 +23,5 @@ module.exports = {
       statements: 80,
     },
   },
+  testTimeout: 30000, // 30 seconds
 };
