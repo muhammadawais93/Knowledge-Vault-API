@@ -12,8 +12,11 @@ export default class App {
   private config(app: Application): void {
     app.use(securityHeadersMiddleware);
     app.use(cors());
-    app.use(rateLimiterMiddleware);
-    app.use(requestLoggerMiddleware);
+    // Disable rate limiter and noisy request logging during tests to avoid open handles
+    if (process.env.NODE_ENV !== 'test') {
+      app.use(rateLimiterMiddleware);
+      app.use(requestLoggerMiddleware);
+    }
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
   }
