@@ -3,15 +3,15 @@
     "target": "es2022",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": ".",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
-  "include": ["src/**/*", "tests/**/*", "global.d.ts"],
+  "include": ["src/**/*", "global.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

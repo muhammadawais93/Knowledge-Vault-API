@@ -1,11 +1,20 @@
 module.exports = {
   testEnvironment: 'node',
   preset: 'ts-jest',
+  transform: {
+    '^.+\\.ts$': [
+      'ts-jest',
+      {
+        tsconfig: './tests/tsconfig.test.json',
+      },
+    ],
+  },
   testMatch: ['**/tests/**/*.test.ts', '**/tests/**/*.spec.ts'],
   globalSetup: './tests/setup/globalSetup.ts',
   globalTeardown: './tests/setup/globalTeardown.ts',
   setupFiles: ['./tests/setup/env.ts'],
   setupFilesAfterEnv: ['./tests/setup/setupTests.ts'],
+  maxWorkers: 1,
   collectCoverageFrom: [
     'src/**/*.ts',
     // Exclude files that don't need unit tests
