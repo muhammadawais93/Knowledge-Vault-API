@@ -1,4 +1,5 @@
 import type { MongoMemoryServer } from 'mongodb-memory-server';
+import { Application } from 'express';
 
 declare global {
   var __MONGO_URI__: string;
