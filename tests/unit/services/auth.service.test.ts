@@ -37,7 +37,7 @@ describe('AuthService', () => {
     test('should user do the login', async () => {
       // Mock the mongoose query chain properly
       const mockQuery = {
-        select: jest.fn().mockResolvedValue(mockFoundUser),
+        select: jest.fn().mockReturnThis().mockResolvedValue(mockFoundUser),
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -55,7 +55,7 @@ describe('AuthService', () => {
 
     test('should fail login with user does not exist', async () => {
       const mockQuery = {
-        select: jest.fn().mockResolvedValue(null),
+        select: jest.fn().mockReturnThis().mockResolvedValue(null),
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,7 +69,7 @@ describe('AuthService', () => {
 
     test('should fail login with incorrect password', async () => {
       const mockQuery = {
-        select: jest.fn().mockResolvedValue(mockFoundUser),
+        select: jest.fn().mockReturnThis().mockResolvedValue(mockFoundUser),
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
