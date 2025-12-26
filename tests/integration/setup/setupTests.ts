@@ -1,5 +1,5 @@
 import express from 'express';
-import App from '../../src/app';
+import App from '../../../src/app';
 import mongoose from 'mongoose';
 
 beforeAll(async () => {

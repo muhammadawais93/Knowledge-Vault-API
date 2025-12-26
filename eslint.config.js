@@ -22,4 +22,10 @@ export default [
       'prettier/prettier': 'error',
     },
   },
+  {
+    files: ['**/*.config.js', 'jest.*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 ];

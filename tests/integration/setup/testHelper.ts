@@ -1,8 +1,8 @@
-import { KnowledgeItemModel } from '../../src/models/KnowledgeItem';
-import { UserModel } from '../../src/models/User';
-import { CollectionModel } from '../../src/models/Collection';
+import { KnowledgeItemModel } from '../../../src/models/KnowledgeItem';
+import { UserModel } from '../../../src/models/User';
+import { CollectionModel } from '../../../src/models/Collection';
 import jwt from 'jsonwebtoken';
-import config from '../../src/config';
+import config from '../../../src/config';
 
 export class TestHelper {
   static async createTestUser() {

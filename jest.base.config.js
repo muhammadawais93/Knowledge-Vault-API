@@ -9,12 +9,6 @@ module.exports = {
       },
     ],
   },
-  testMatch: ['**/tests/**/*.test.ts', '**/tests/**/*.spec.ts'],
-  globalSetup: './tests/setup/globalSetup.ts',
-  globalTeardown: './tests/setup/globalTeardown.ts',
-  setupFiles: ['./tests/setup/env.ts'],
-  setupFilesAfterEnv: ['./tests/setup/setupTests.ts'],
-  maxWorkers: 1,
   collectCoverageFrom: [
     'src/**/*.ts',
     // Exclude files that don't need unit tests
@@ -26,7 +20,6 @@ module.exports = {
     '!src/types/**/*.ts', // Type definitions only
     '!src/models/**/*.ts', // Mongoose schemas
   ],
-  coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   coverageThreshold: {
     global: {

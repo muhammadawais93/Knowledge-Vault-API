@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { TestHelper } from '../setup/testHelper';
+import { TestHelper } from './setup/testHelper';
 
 describe('Analytics API Integration Tests', () => {
   let validToken: string;
