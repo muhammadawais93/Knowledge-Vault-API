@@ -2,16 +2,20 @@ import { KnowledgeItemModel } from '../../../src/models/KnowledgeItem';
 import { UserModel } from '../../../src/models/User';
 import { CollectionModel } from '../../../src/models/Collection';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import config from '../../../src/config';
 
 export class TestHelper {
   static async createTestUser() {
+    const password = 'password123';
+    const passwordHash = await bcrypt.hash(password, config.saltRounds);
+
     const testUser = await UserModel.create({
       firstName: 'Test',
       lastName: 'User',
       email: 'testuser@example.com',
       role: 'user',
-      passwordHash: 'hashedpassword',
+      passwordHash,
     });
 
     const validToken = jwt.sign(
