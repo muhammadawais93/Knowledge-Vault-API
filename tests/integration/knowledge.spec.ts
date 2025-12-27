@@ -58,5 +58,34 @@ describe('knowledge API Integration Tests', () => {
       expect(response.body.knowledgeItem).toHaveProperty('tags', newKnowledgeItem.tags);
       expect(response.body.knowledgeItem).toHaveProperty('collectionId', testCollectionId);
     });
+
+    test('should update the knowledge item', async () => {
+      const updateKnowledgeItem = {
+        title: 'Updated JavaScript Basics',
+        tags: ['javascript', 'programming', 'web', 'updated'],
+      };
+
+      const response = await request(global.__APP__)
+        .put(`/api/knowledge/${testKnowledgeItems[0]}`)
+        .set('Authorization', `Bearer ${validToken}`)
+        .send(updateKnowledgeItem)
+        .expect(200);
+
+      expect(response.body).toHaveProperty('knowledgeItem');
+      expect(response.body.knowledgeItem).toHaveProperty('title', updateKnowledgeItem.title);
+      expect(response.body.knowledgeItem).toHaveProperty('tags', updateKnowledgeItem.tags);
+    });
+
+    test('should delete the knowledge item', async () => {
+      const response = await request(global.__APP__)
+        .delete(`/api/knowledge/${testKnowledgeItems[0]}`)
+        .set('Authorization', `Bearer ${validToken}`)
+        .expect(200);
+
+      expect(response.body).toHaveProperty('message', 'Knowledge item deleted successfully');
+
+      // Verify deletion
+      await request(global.__APP__).get(`/api/knowledge/${testKnowledgeItems[0]}`).set('Authorization', `Bearer ${validToken}`).expect(404);
+    });
   });
 });
