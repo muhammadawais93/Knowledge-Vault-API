@@ -16,7 +16,7 @@ describe('knowledge API Integration Tests', () => {
     testKnowledgeItems = await TestHelper.createTestKnowledgeItem(testUserId, testCollectionId);
   });
 
-  describe('GET /api/knowledge', () => {
+  describe('GET, POST, PUT, DELETE /api/knowledge', () => {
     test('should return knowledge items for the user', async () => {
       const response = await request(global.__APP__).get('/api/knowledge').set('Authorization', `Bearer ${validToken}`).expect(200);
 

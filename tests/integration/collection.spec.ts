@@ -15,7 +15,7 @@ describe('Collection API Integration Tests', () => {
     await TestHelper.createTestKnowledgeItem(testUserId, testCollectionId);
   });
 
-  describe('GET /api/collections', () => {
+  describe('GET, POST, PUT, DELETE /api/collections', () => {
     test('should return collections for the user', async () => {
       const response = await supertest(global.__APP__).get('/api/collections').set('Authorization', `Bearer ${validToken}`).expect(200);
 
