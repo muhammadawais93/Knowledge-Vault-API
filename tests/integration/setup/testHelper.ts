@@ -68,6 +68,8 @@ export class TestHelper {
       },
     ];
 
-    await KnowledgeItemModel.insertMany(knowledgeItems);
+    const insertedKnowledgeItems = await KnowledgeItemModel.insertMany(knowledgeItems);
+
+    return insertedKnowledgeItems.map((item) => item._id.toString());
   }
 }
