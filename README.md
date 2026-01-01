@@ -31,7 +31,15 @@ A robust RESTful API built with Node.js, TypeScript, and MongoDB for managing pe
 - **Containerization**: Docker & Docker Compose
 - **CI/CD**: GitHub Actions
 
-## �� API Endpoints
+## 📚 API Documentation
+
+Interactive API documentation is available at `/docs` when running the server:
+- Development: http://localhost:3000/docs
+- The documentation includes all endpoints, request/response schemas, and authentication details
+
+You can also view the OpenAPI specification in [src/docs/openapi.yaml](src/docs/openapi.yaml).
+
+## 📋 API Endpoints
 
 - `/api/auth` - User authentication (register, login)
 - `/api/knowledge` - Knowledge items CRUD operations
@@ -189,7 +197,7 @@ The project maintains **80% code coverage threshold** across:
 - `npm run lint:fix` - Fix code style issues
 - `npm run format` - Format code with Prettier
 
-## � Security
+## 🔒 Security
 
 - JWT token-based authentication
 - Password hashing with bcrypt (configurable salt rounds)
@@ -222,7 +230,7 @@ The project uses Pino for structured logging. Set `LOG_LEVEL=debug` in your `.en
 - ESLint and Prettier are configured - run `npm run lint:fix` and `npm run format` before committing
 - Pre-commit hooks can be added with Husky (optional)
 
-## �📊 Data Models
+## 📊 Data Models
 
 ### Knowledge Item Types
 
@@ -238,18 +246,6 @@ The project uses Pino for structured logging. Set `LOG_LEVEL=debug` in your `.en
 - User-specific privacy controls
 - Rich metadata tracking
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
 ## 🚧 Roadmap
 
 ### Completed ✅
@@ -259,18 +255,6 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 - ✅ CI/CD pipeline with GitHub Actions
 - ✅ Comprehensive test coverage (unit + integration)
 - ✅ Interactive API documentation
-
-### Planned 🔄
-- [ ] Rate limiting per user (not just per IP)
-- [ ] Email verification for user registration
-- [ ] Password reset functionality
-- [ ] File upload support for attachments
-- [ ] Advanced search filters (date ranges, relevance scoring)
-- [ ] Export functionality (JSON, Markdown, PDF)
-- [ ] Sharing and collaboration features
-- [ ] WebSocket support for real-time updates
-- [ ] GraphQL API alternative
-- [ ] Mobile app companion (React Native)
 
 ---
 
