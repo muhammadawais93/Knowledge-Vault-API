@@ -26,7 +26,7 @@ export default [
   {
     files: ['**/*.config.js', 'jest.*.js'],
     rules: {
-      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-require-imports': 'warn',
     },
   },
 ];
