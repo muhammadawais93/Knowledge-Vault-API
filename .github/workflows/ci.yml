@@ -79,33 +79,3 @@ jobs:
           name: codecov-umbrella
           # Don't fail if Codecov is down
           fail_ci_if_error: false
-
-  # Job 2: Build Docker image
-  # This runs AFTER tests pass (needs: test)
-  # build:
-  #   name: Build Docker Image
-  #   runs-on: ubuntu-latest
-  #   # Only run if tests passed
-  #   needs: test
-
-  #   steps:
-  #     # Step 1: Get the code
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-
-  #     # Step 2: Setup Docker Buildx
-  #     # Advanced Docker builder with caching support
-  #     - name: Set up Docker Buildx
-  #       uses: docker/setup-buildx-action@v3
-
-  #     # Step 3: Build Docker image
-  #     # We don't push here, just test that it builds
-  #     - name: Build Docker image
-  #       uses: docker/build-push-action@v5
-  #       with:
-  #         context: .
-  #         push: false  # Don't push to registry yet
-  #         tags: knowledge-vault-api:${{ github.sha }}
-  #         # GitHub Actions cache - makes builds faster
-  #         cache-from: type=gha
-  #         cache-to: type=gha,mode=max

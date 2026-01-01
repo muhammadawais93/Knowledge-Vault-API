@@ -1,0 +1,49 @@
+# Dependencies - we'll install these fresh in Docker
+node_modules
+
+# Build output - we create this during Docker build
+dist
+
+# Environment files - NEVER include secrets in images!
+.env
+.env.*
+!.env.example
+
+# Git files - not needed in production
+.git
+.gitignore
+.github
+
+# Documentation - not needed to run the app
+README.md
+*.md
+
+# Test files - don't need these in production
+coverage
+tests
+*.test.ts
+*.spec.ts
+__tests__
+__mocks__
+
+# IDE files - personal developer settings
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Docker files themselves
+Dockerfile
+docker-compose.yml
+.dockerignore

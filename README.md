@@ -1,5 +1,7 @@
 # Knowledge Vault API
 
+[![CI - Test & Build](https://github.com/muhammadawais93/Knowledge-Vault-API/workflows/CI%20-%20Test%20%26%20Build/badge.svg)](https://github.com/muhammadawais93/Knowledge-Vault-API/actions)
+
 A robust RESTful API built with Node.js, TypeScript, and MongoDB for managing personal knowledge items including notes, bookmarks, and code snippets. Features full-text search, collections organization, user authentication, and analytics dashboard.
 
 ## 🚀 Features
